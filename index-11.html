@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hutchinson Family Dentistry — Lexington, SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #e8f4f8;
+    --ocean: #2a7fa5;
+    --ocean-dark: #1a5f7a;
+    --coral: #e07b5a;
+    --coral-light: #f5c4b0;
+    --cream: #fefcf8;
+    --warm-white: #fffaf5;
+    --text: #2c2c2c;
+    --text-mid: #5a5a5a;
+    --mint: #d4ede8;
+    --mint-dark: #4aaa99;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--warm-white); color: var(--text); overflow-x: hidden; }
+
+  .demo-banner {
+    background: var(--ocean); color: #fff; text-align: center; padding: 10px 20px;
+    font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
+    position: sticky; top: 0; z-index: 9999;
+  }
+  .demo-banner span { opacity: 0.75; font-weight: 400; }
+  .demo-banner a { color: var(--coral-light); text-decoration: none; font-weight: 700; }
+
+  nav {
+    background: var(--cream); border-bottom: 1px solid #e8e0d5; padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between; height: 70px;
+    position: sticky; top: 37px; z-index: 100;
+  }
+  .nav-logo { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: var(--ocean-dark); line-height: 1.2; }
+  .nav-logo span { display: block; font-size: 0.75rem; font-weight: 400; color: var(--text-mid); font-family: 'Nunito', sans-serif; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { font-size: 0.85rem; font-weight: 600; color: var(--text-mid); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ocean); }
+  .nav-cta { background: var(--coral); color: #fff; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--ocean); color: #fff; }
+
+  .hero {
+    background: var(--warm-white); min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; overflow: hidden; position: relative;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--coral-light) 0%, transparent 70%); opacity: 0.4; pointer-events: none;
+  }
+  .hero-left { padding: 80px 60px 80px 80px; animation: fadeUp 0.8s ease forwards; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px; background: var(--mint); color: var(--mint-dark);
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 50px; margin-bottom: 28px;
+  }
+  .hero-tag::before { content: '●'; font-size: 8px; }
+
+  .hero h1 { font-family: 'Lora', serif; font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 700; line-height: 1.15; color: var(--ocean-dark); margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--coral); }
+  .hero-sub { font-size: 1.05rem; color: var(--text-mid); line-height: 1.7; max-width: 420px; margin-bottom: 40px; }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--ocean); color: #fff; padding: 15px 30px; border-radius: 50px; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { background: var(--ocean-dark); transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: var(--ocean); padding: 15px 30px; border-radius: 50px; font-size: 0.95rem; font-weight: 700; text-decoration: none; border: 2px solid var(--ocean); transition: all 0.2s; }
+  .btn-secondary:hover { background: var(--ocean); color: #fff; }
+
+  .hero-stats { display: flex; gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid #e8e0d5; }
+  .hero-stat .num { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: var(--ocean-dark); }
+  .hero-stat .label { font-size: 0.75rem; font-weight: 600; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .hero-right {
+    background: var(--sky); height: 100%; min-height: 88vh; display: flex; flex-direction: column;
+    justify-content: center; padding: 60px 50px; position: relative; animation: fadeIn 1s ease 0.3s both;
+  }
+  .hero-right::before {
+    content: ''; position: absolute; bottom: -60px; left: -60px; width: 200px; height: 200px;
+    background: var(--mint); border-radius: 50%; opacity: 0.5;
+  }
+
+  .booking-card { background: #fff; border-radius: 20px; padding: 36px; box-shadow: 0 20px 60px rgba(42,127,165,0.12); position: relative; z-index: 1; }
+  .booking-card h3 { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 700; color: var(--ocean-dark); margin-bottom: 6px; }
+  .booking-card > p { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 24px; }
+
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 5px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .form-group input, .form-group select { width: 100%; padding: 12px 16px; border: 1.5px solid #e0dcd8; border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 0.9rem; color: var(--text); background: var(--warm-white); transition: border-color 0.2s; outline: none; }
+  .form-group input:focus, .form-group select:focus { border-color: var(--ocean); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .btn-book { width: 100%; background: var(--coral); color: #fff; border: none; padding: 15px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 8px; transition: background 0.2s, transform 0.2s; }
+  .btn-book:hover { background: var(--ocean); transform: translateY(-1px); }
+  .card-note { text-align: center; font-size: 0.75rem; color: var(--text-mid); margin-top: 12px; }
+
+  .confirm-state { display: none; text-align: center; padding: 20px 0; }
+  .confirm-state .check { font-size: 3rem; margin-bottom: 12px; }
+  .confirm-state h4 { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--ocean-dark); margin-bottom: 8px; }
+  .confirm-state p { font-size: 0.85rem; color: var(--text-mid); }
+
+  .services { padding: 100px 80px; background: var(--cream); }
+
+  .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+  .section-title { font-family: 'Lora', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: var(--ocean-dark); margin-bottom: 14px; line-height: 1.2; }
+  .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 500px; line-height: 1.7; margin-bottom: 56px; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card { background: #fff; border-radius: 16px; padding: 32px 28px; border: 1.5px solid #f0ebe5; opacity: 0; transform: translateY(30px); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s; }
+  .service-card.visible { opacity: 1; transform: translateY(0); }
+  .service-card:hover { box-shadow: 0 16px 40px rgba(42,127,165,0.1); transform: translateY(-4px); }
+  .service-icon { width: 52px; height: 52px; background: var(--sky); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; }
+  .service-card h4 { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: var(--ocean-dark); margin-bottom: 8px; }
+  .service-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+
+  .automation-strip { background: var(--ocean-dark); padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .auto-left h2 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 16px; }
+  .auto-left h2 em { font-style: italic; color: var(--coral-light); }
+  .auto-left p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.75; }
+
+  .auto-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .auto-stat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 24px 20px; text-align: center; }
+  .auto-stat .big { font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 700; color: var(--coral-light); line-height: 1; margin-bottom: 6px; }
+  .auto-stat .small { font-size: 0.78rem; color: rgba(255,255,255,0.65); font-weight: 600; letter-spacing: 0.04em; }
+
+  .doctor-section { padding: 100px 80px; background: var(--warm-white); display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center; }
+  .doctor-portrait { background: var(--sky); border-radius: 24px; aspect-ratio: 3/4; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 28px; position: relative; overflow: hidden; }
+  .doctor-portrait::before { content: '👨‍⚕️'; font-size: 7rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); opacity: 0.3; }
+  .doctor-portrait .doc-name { background: #fff; border-radius: 12px; padding: 16px 20px; width: 100%; text-align: center; position: relative; z-index: 1; }
+  .doc-name strong { display: block; font-family: 'Lora', serif; font-size: 1rem; color: var(--ocean-dark); }
+  .doc-name span { font-size: 0.78rem; color: var(--text-mid); }
+  .doctor-right h2 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 700; color: var(--ocean-dark); line-height: 1.25; margin-bottom: 20px; }
+  .doctor-right p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 14px; }
+  .credentials { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .credential { background: var(--sky); color: var(--ocean-dark); padding: 8px 16px; border-radius: 50px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; }
+
+  .reviews { background: var(--cream); padding: 80px; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .review-card { background: #fff; border-radius: 16px; padding: 28px; border: 1.5px solid #f0ebe5; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .review-card.visible { opacity: 1; transform: translateY(0); }
+  .stars { color: #f4b942; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+  .review-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+  .reviewer { font-size: 0.8rem; font-weight: 700; color: var(--text); }
+
+  .new-patient { background: linear-gradient(135deg, var(--coral) 0%, #c8564e 100%); padding: 80px; text-align: center; }
+  .new-patient h2 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: #fff; margin-bottom: 16px; }
+  .new-patient p { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 36px; line-height: 1.65; }
+  .btn-white { background: #fff; color: var(--coral); padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; transition: transform 0.2s; margin: 0 8px; }
+  .btn-white:hover { transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: #fff; padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; border: 2px solid rgba(255,255,255,0.6); display: inline-block; transition: background 0.2s; margin: 0 8px; }
+  .btn-outline:hover { background: rgba(255,255,255,0.15); }
+
+  footer { background: var(--ocean-dark); color: rgba(255,255,255,0.7); padding: 48px 80px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+  .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  footer p, footer a { font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; line-height: 1.9; }
+  footer h5 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 30px; }
+    .hero-right { min-height: auto; padding: 40px 30px; }
+    .services, .reviews { padding: 60px 30px; }
+    .services-grid, .reviews-grid { grid-template-columns: 1fr; }
+    .automation-strip { grid-template-columns: 1fr; padding: 60px 30px; gap: 40px; }
+    .doctor-section { grid-template-columns: 1fr; padding: 60px 30px; gap: 40px; }
+    .new-patient { padding: 60px 30px; }
+    footer { grid-template-columns: 1fr; padding: 40px 30px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  🤖 PALMETTOAI DEMO — Built for Hutchinson Family Dentistry &nbsp;·&nbsp; <span>Interested?</span> <a href="mailto:tony@palmettoai.com">tony@palmettoai.com</a>
+</div>
+
+<nav>
+  <div class="nav-logo">Hutchinson Family Dentistry<span>Lexington, South Carolina</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">Dr. Hutchinson</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#book" class="nav-cta">Book Appointment</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Now Accepting New Patients</div>
+    <h1>Lexington's Most <em>Trusted</em> Family Dentist</h1>
+    <p class="hero-sub">Dr. Steven Hutchinson has been caring for Lexington families for over 15 years. Gentle, comprehensive dentistry — from your child's first visit to your smile makeover.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">📅 Book Online</a>
+      <a href="tel:8033590566" class="btn-secondary">📞 (803) 359-0566</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">15+</div><div class="label">Years in Lexington</div></div>
+      <div class="hero-stat"><div class="num">0</div><div class="label">No-Shows This Month</div></div>
+      <div class="hero-stat"><div class="num">5★</div><div class="label">Patient Rating</div></div>
+    </div>
+  </div>
+
+  <div class="hero-right" id="book">
+    <div class="booking-card">
+      <h3>Request an Appointment</h3>
+      <p>We'll confirm within 2 hours during business hours.</p>
+      <div id="bookForm">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(803) 555-0100"></div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option>Routine Cleaning & Exam</option>
+            <option>Teeth Whitening</option>
+            <option>New Patient Exam</option>
+            <option>Emergency Visit</option>
+            <option>Invisalign Consultation</option>
+            <option>Pediatric Dentistry</option>
+            <option>Dental Implants</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Time</label>
+          <select>
+            <option>Morning (8am–12pm)</option>
+            <option>Afternoon (12pm–3pm)</option>
+            <option>Late Afternoon (3pm–5pm)</option>
+          </select>
+        </div>
+        <button class="btn-book" onclick="submitBook()">Request My Appointment →</button>
+        <p class="card-note">🔒 Your info is private. No spam, ever.</p>
+      </div>
+      <div class="confirm-state" id="bookConfirm">
+        <div class="check">✅</div>
+        <h4>You're all set!</h4>
+        <p>We'll text you a confirmation shortly. See you soon!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-tag">What We Offer</div>
+  <h2 class="section-title">Complete Care for the Whole Family</h2>
+  <p class="section-sub">From pediatric check-ups to full smile makeovers, we handle everything under one roof — so you never need a referral.</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">🦷</div><h4>Preventive Care</h4><p>Cleanings, exams, X-rays, and sealants. The foundation of a healthy smile — recommended every 6 months for the whole family.</p></div>
+    <div class="service-card"><div class="service-icon">✨</div><h4>Cosmetic Dentistry</h4><p>Whitening, veneers, bonding, and smile design. Look as good as you feel with natural-looking results tailored to your face.</p></div>
+    <div class="service-card"><div class="service-icon">🧒</div><h4>Pediatric Dentistry</h4><p>Gentle care for little smiles. We make your child's first dental visit fun and fear-free — building healthy habits for life.</p></div>
+    <div class="service-card"><div class="service-icon">🦴</div><h4>Dental Implants</h4><p>Replace missing teeth with permanent, natural-looking implants. The gold standard in tooth replacement — looks and feels real.</p></div>
+    <div class="service-card"><div class="service-icon">😬</div><h4>Invisalign</h4><p>Straighten your smile without metal braces. Clear, removable aligners custom-made for you — no one will even notice.</p></div>
+    <div class="service-card"><div class="service-icon">🚨</div><h4>Emergency Dentistry</h4><p>Tooth pain can't wait. Same-day emergency appointments available. Call us — we'll get you in today.</p></div>
+  </div>
+</section>
+
+<section class="automation-strip">
+  <div class="auto-left">
+    <h2>Your appointment reminded you. <em>Automatically.</em></h2>
+    <p>Our smart scheduling system sends a confirmation text the moment you book, a reminder 24 hours before, and a follow-up 2 hours prior to your visit — so no-shows are a thing of the past. You'll never miss a cleaning again.</p>
+  </div>
+  <div class="auto-stats">
+    <div class="auto-stat"><div class="big">24hr</div><div class="small">Auto Reminder Sent</div></div>
+    <div class="auto-stat"><div class="big">2hr</div><div class="small">Pre-Visit Text</div></div>
+    <div class="auto-stat"><div class="big">0</div><div class="small">No-Shows This Month</div></div>
+    <div class="auto-stat"><div class="big">5★</div><div class="small">Post-Visit Review Ask</div></div>
+  </div>
+</section>
+
+<section class="doctor-section" id="about">
+  <div class="doctor-portrait">
+    <div class="doc-name">
+      <strong>Dr. Steven Hutchinson, DDS</strong>
+      <span>Lexington Family Dentistry</span>
+    </div>
+  </div>
+  <div class="doctor-right">
+    <div class="section-tag">Meet Your Dentist</div>
+    <h2>A Familiar Face in Lexington for Over 15 Years</h2>
+    <p>Dr. Steven Hutchinson grew up in South Carolina and has been proudly serving the Lexington community since opening his practice. He believes great dental care is built on trust — which is why most of his new patients come from referrals from neighbors and friends.</p>
+    <p>Whether it's your child's first visit or a complex cosmetic case, Dr. Hutchinson takes the time to listen, explain your options, and make you feel genuinely comfortable — not rushed.</p>
+    <div class="credentials">
+      <span class="credential">🎓 USC School of Dentistry</span>
+      <span class="credential">🦷 Invisalign Certified</span>
+      <span class="credential">✅ HIPAA Compliant</span>
+      <span class="credential">🏠 Locally Owned</span>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-tag">Patient Reviews</div>
+  <h2 class="section-title">What Lexington Families Are Saying</h2>
+  <div class="reviews-grid">
+    <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Dr. Hutchinson is hands down the best dentist I've ever had. He's patient, thorough, and my kids actually look forward to coming in. Highly recommend."</p><div class="reviewer">— Sarah M., Lexington SC</div></div>
+    <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"The reminder texts are so helpful — they texted me twice and I didn't miss a single cleaning this year. The whole office is amazing and so warm."</p><div class="reviewer">— Marcus T., Irmo SC</div></div>
+    <div class="review-card"><div class="stars">★★★★★</div><p class="review-text">"Had a dental emergency on a Friday afternoon. They got me in within 2 hours, fixed the problem, and followed up the next day. Above and beyond."</p><div class="reviewer">— Jennifer K., Gilbert SC</div></div>
+  </div>
+</section>
+
+<section class="new-patient">
+  <h2>Ready for Your Healthiest Smile?</h2>
+  <p>New patients welcome. Most insurances accepted. Book online in 60 seconds — or call us right now.</p>
+  <a href="#book" class="btn-white">Book Online</a>
+  <a href="tel:8033590566" class="btn-outline">📞 (803) 359-0566</a>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-brand">Hutchinson Family Dentistry</div>
+    <p>Lexington, South Carolina<br>📞 (803) 359-0566<br>✉ hello@drstevenhutchinson.com</p>
+  </div>
+  <div>
+    <h5>Hours</h5>
+    <p>Mon–Thu: 8am–5pm<br>Friday: 8am–1pm<br>Sat–Sun: Closed</p>
+  </div>
+  <div>
+    <h5>Services</h5>
+    <p>Preventive Care<br>Cosmetic Dentistry<br>Pediatric Dentistry<br>Dental Implants<br>Invisalign</p>
+  </div>
+</footer>
+
+<script>
+  function submitBook() {
+    document.getElementById('bookForm').style.display = 'none';
+    document.getElementById('bookConfirm').style.display = 'block';
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 100);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.service-card, .review-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
