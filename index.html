@@ -178,8 +178,12 @@
     .new-patient { padding: 60px 30px; }
     footer { grid-template-columns: 1fr; padding: 40px 30px; }
     nav { padding: 0 20px; }
+    .nav-hamburger{display:flex;}
     .nav-links { display: none; }
+    .nav-links.nav-open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--cream);padding:1.5rem 2rem;border-top:1px solid #e8e0d5;gap:1.2rem;z-index:99;}
   }
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+  .nav-hamburger span{display:block;width:24px;height:2px;background:var(--ocean);transition:all .3s;}
 </style>
 </head>
 <body>
@@ -196,6 +200,7 @@
     <a href="#reviews">Reviews</a>
     <a href="#book" class="nav-cta">Book Appointment</a>
   </div>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="hero">
@@ -337,6 +342,7 @@
 </footer>
 
 <script>
+  document.querySelector('.nav-hamburger').addEventListener('click',function(){document.querySelector('.nav-links').classList.toggle('nav-open');});
   function submitBook() {
     document.getElementById('bookForm').style.display = 'none';
     document.getElementById('bookConfirm').style.display = 'block';
